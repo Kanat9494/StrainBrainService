@@ -1,0 +1,33 @@
+﻿/****** Скрипт для команды SelectTopNRows из среды SSMS  ******/
+SELECT TOP (1000) [QuestionId]
+      ,[Title]
+      ,[RightAnser]
+      ,[ChoiceOne]
+      ,[ChoiceTwo]
+      ,[ChoiceThree]
+      ,[ChoiceFour]
+  FROM [TestDb].[dbo].[Questions]
+
+
+insert into Questions (Title, RightAnser, ChoiceOne, ChoiceTwo, ChoiceThree, ChoiceFour) values
+(N'Когда возник Кыргызстан?', N'В 1992-м году', N'В 1900-м году', N'В 1905-м году', N'В 1992-м году', N'В 1950-м году')
+insert into Questions (Title, RightAnser, ChoiceOne, ChoiceTwo, ChoiceThree, ChoiceFour) values
+(N'Настоящее имя Айки', N'Айкерим', N'Марс', N'Канатбек', N'Никто не знает', N'Айкерим')
+insert into Questions (Title, RightAnser, ChoiceOne, ChoiceTwo, ChoiceThree, ChoiceFour) values
+(N'Сколько лет Марсу?', N'2', N'2', N'3', N'10', N'100 лет')
+insert into Questions (Title, RightAnser, ChoiceOne, ChoiceTwo, ChoiceThree, ChoiceFour) values
+(N'Как переводится Земля на Кыргызский язык', N'Жер', N'Жер-Эне', N'Туулган жер', N'Жер', N'Кыргызстан')
+insert into Questions (Title, RightAnser, ChoiceOne, ChoiceTwo, ChoiceThree, ChoiceFour) values
+(N'Кто построил Бишкек?', N'Бишкек', N'Бишкек', N'Манас', N'В 1992-м году', N'Долон бий')
+insert into Questions (Title, RightAnser, ChoiceOne, ChoiceTwo, ChoiceThree, ChoiceFour) values
+(N'Кто создал это приложение', N'Канат', N'Канат', N'Айка', N'Айкерим', N'Марс')
+insert into Questions (Title, RightAnser, ChoiceOne, ChoiceTwo, ChoiceThree, ChoiceFour) values
+(N'Самый большой лев?', N'Барбарийский', N'Африканский', N'Барбарийский', N'Индийский', N'Кыргызский')
+insert into Questions (Title, RightAnser, ChoiceOne, ChoiceTwo, ChoiceThree, ChoiceFour) values
+(N'Как звали кошку Каната?', N'Мышык', N'Кучук', N'Ит', N'Мышык', N'Бетси')
+insert into Questions (Title, RightAnser, ChoiceOne, ChoiceTwo, ChoiceThree, ChoiceFour) values
+(N'Когда случилось землетрясение в Турции', N'В 2023-м году', N'В 1900-м году', N'В 1905-м году', N'В 1992-м году', N'В 2023-м году')
+insert into Questions (Title, RightAnser, ChoiceOne, ChoiceTwo, ChoiceThree, ChoiceFour) values
+(N'Как зовут Халка?', N'Брюс Беннер', N'Брюс Беннер', N'Халк', N'Супермен', N'Питер Паркер')
+insert into Questions (Title, RightAnser, ChoiceOne, ChoiceTwo, ChoiceThree, ChoiceFour) values
+(N'Кто придумал C#?', N'Майкрософт', N'Гугл', N'Майкрософт', N'Я', N'Китай')

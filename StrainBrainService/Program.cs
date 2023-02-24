@@ -8,7 +8,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Entity FrameworkCore
-builder.Services.AddDbContext<>
+builder.Services.AddDbContext<QuestionContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("MainConnection")
+    )
+);
+
+builder.Services.AddScoped(typeof(IDataRepository<Question>), typeof(QuestionRepository));
 
 var app = builder.Build();
 

@@ -1,6 +1,6 @@
-﻿namespace StrainBrainService.Data.Repositories
+﻿namespace StrainBrainService.Data.Repositories;
+
+public interface IDataRepository<TResponse>
 {
-    public class IDataRepository
-    {
-    }
+    Task<IEnumerable<TResponse>> GetItemsAsync();
 }

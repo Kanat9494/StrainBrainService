@@ -8,8 +8,8 @@ public class QuestionRepository : IDataRepository<Question>
     }
 
     private readonly QuestionContext _context;
-    public async Task<IEnumerable<Question>> GetItemsAsync()
+    public async Task<IEnumerable<Question>> GetItemsAsync(int questionsCountToSkip)
     {
-        return await _context.Questions.Take(10).ToListAsync();
+        return await _context.Questions.Skip(questionsCountToSkip).Take(100).ToListAsync();
     }
 }

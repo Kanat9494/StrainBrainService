@@ -2,5 +2,5 @@
 
 public interface IDataRepository<TResponse>
 {
-    Task<IEnumerable<TResponse>> GetItemsAsync();
+    Task<IEnumerable<TResponse>> GetItemsAsync(int questionsCountToSkip);
 }

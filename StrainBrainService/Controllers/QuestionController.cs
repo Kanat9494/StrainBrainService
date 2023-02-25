@@ -11,10 +11,10 @@
 
         private readonly IDataRepository<Question> _questionRepository;
 
-        [HttpGet("GetQuestions")]
-        public async Task<IEnumerable<Question>> GetQuestions()
+        [HttpGet("GetQuestions/{questionsCountToSkip}")]
+        public async Task<IEnumerable<Question>> GetQuestions(int questionsCountToSkip)
         {
-            return await _questionRepository.GetItemsAsync();
+            return await _questionRepository.GetItemsAsync(questionsCountToSkip);
         }
     }
 }

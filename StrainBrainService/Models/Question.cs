@@ -5,7 +5,7 @@ public class Question
     [Key]
     public int QuestionId { get; set; }
     public string? Title { get; set; }
-    public string? RightAnser { get; set; }
+    public string? RightAnswer { get; set; }
     public string? ChoiceOne { get; set; }
     public string? ChoiceTwo { get; set; }
     public string? ChoiceThree { get; set; }

@@ -8,7 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Entity FrameworkCore
-builder.Services.AddDbContext<QuestionContext>(options =>
+builder.Services.AddDbContext<StrainBrainService.Models.AppContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("MainConnection")
     )

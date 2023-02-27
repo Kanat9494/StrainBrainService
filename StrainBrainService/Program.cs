@@ -8,13 +8,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Entity FrameworkCore
-builder.Services.AddDbContext<StrainBrainService.Models.AppContext>(options =>
+builder.Services.AddDbContext<StrainBrainService.Models.StrainBrainContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("MainConnection")
     )
 );
 
 builder.Services.AddScoped(typeof(IDataRepository<Question>), typeof(QuestionRepository));
+builder.Services.AddScoped(typeof(IUserRepository<AuthenticationRequest>), typeof(UserRepository));
 
 var app = builder.Build();
 

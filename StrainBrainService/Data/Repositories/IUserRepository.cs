@@ -1,6 +1,6 @@
 ﻿namespace StrainBrainService.Data.Repositories;
 
-public interface IUserRepository
+public interface IUserRepository<TRequest>
 {
-    Task<UserResponse> AuthenticateUser(string userName, string password);
+    Task<UserResponse?> AuthenticateUser(TRequest request);
 }

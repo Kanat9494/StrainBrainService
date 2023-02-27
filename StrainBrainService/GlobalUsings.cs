@@ -4,5 +4,6 @@ global using StrainBrainService.Models;
 global using StrainBrainService.Data.Repositories;
 global using Microsoft.AspNetCore.Mvc;
 global using StrainBrainService.Models.DTOs.Responses;
+global using StrainBrainService.Models.DTOs.Requests;
 
 

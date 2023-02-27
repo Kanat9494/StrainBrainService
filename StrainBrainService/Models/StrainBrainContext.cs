@@ -1,8 +1,8 @@
 ﻿namespace StrainBrainService.Models;
 
-public class AppContext : DbContext
+public class StrainBrainContext : DbContext
 {
-    public AppContext(DbContextOptions<AppContext> options) : base(options) { }
+    public StrainBrainContext(DbContextOptions<StrainBrainContext> options) : base(options) { }
 
     public DbSet<Question> Questions { get; set; }
 

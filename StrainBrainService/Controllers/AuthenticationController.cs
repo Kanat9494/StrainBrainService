@@ -1,5 +1,6 @@
 ﻿namespace StrainBrainService.Controllers;
 
+[Authorize]
 [Route("api/[controller]")]
 [ApiController]
 public class AuthenticationController : ControllerBase
@@ -11,9 +12,16 @@ public class AuthenticationController : ControllerBase
 
     private readonly IUserRepository<AuthenticationRequest> _userRepository;
 
+    [AllowAnonymous]
     [HttpPost("AuthenticateUser")]
-    public async Task<UserResponse?> AuthenticateUser([FromBody] AuthenticationRequest request)
+    public async Task<string?> AuthenticateUser([FromBody] AuthenticationRequest request)
     {
         return await _userRepository.AuthenticateUser(request);
+    }
+
+    [HttpGet("TestRequest")]
+    public async Task<IActionResult> TestRequest()
+    {
+        return Ok("It is cool");
     }
 }

@@ -7,6 +7,21 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// JWT Auth
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = AuthOptions.ISSUER,
+        ValidAudience = AuthOptions.AUDIENCE,
+        IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
+    };
+});
+
 // Entity FrameworkCore
 builder.Services.AddDbContext<StrainBrainService.Models.StrainBrainContext>(options =>
     options.UseSqlServer(

@@ -9,7 +9,7 @@ public class UserRepository : IUserRepository<AuthenticationRequest>
 
     private readonly StrainBrainContext _context;
 
-    public async Task<UserResponse?> AuthenticateUser(AuthenticationRequest request)
+    public async Task<string?> AuthenticateUser(AuthenticationRequest request)
     {
         try
         {
@@ -17,17 +17,33 @@ public class UserRepository : IUserRepository<AuthenticationRequest>
             if (user == null)
                 return null;
 
-            UserResponse userResponse = new UserResponse();
-            userResponse.UserId = user.UserId;
-            userResponse.UserName = user.UserName;
-            userResponse.UserBalance = user.UserBalance;
-            userResponse.UserScore = user.UserScore;
+            var token = GenerateJwtToken(user);
 
-            return userResponse;
+            return token;
         }
         catch (Exception ex)
         {
             return null;
         }
+    }
+
+    private string GenerateJwtToken(User user)
+    {
+        var securityKey = AuthOptions.GetSymmetricSecurityKey();
+        var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+        var claims = new[]
+        {
+            new Claim(ClaimTypes.NameIdentifier, user.UserName),
+            new Claim("UserBalance", user.UserBalance?.ToString() ?? ""),
+            new Claim("UserId", user.UserId.ToString()),
+            new Claim("UserScore", user.UserScore?.ToString() ?? "")
+        };
+
+        var token = new JwtSecurityToken(AuthOptions.ISSUER, AuthOptions.AUDIENCE, claims,
+            expires: DateTime.Now.AddMinutes(1),
+            signingCredentials: credentials);
+
+        return new JwtSecurityTokenHandler().WriteToken(token);
     }
 }

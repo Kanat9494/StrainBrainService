@@ -14,7 +14,7 @@ public class AuthenticationController : ControllerBase
 
     [AllowAnonymous]
     [HttpPost("AuthenticateUser")]
-    public async Task<string?> AuthenticateUser([FromBody] AuthenticationRequest request)
+    public async Task<UserResponse?> AuthenticateUser([FromBody] AuthenticationRequest request)
     {
         return await _userRepository.AuthenticateUser(request);
     }

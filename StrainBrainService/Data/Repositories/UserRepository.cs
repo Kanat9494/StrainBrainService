@@ -9,7 +9,7 @@ public class UserRepository : IUserRepository<AuthenticationRequest>
 
     private readonly StrainBrainContext _context;
 
-    public async Task<string?> AuthenticateUser(AuthenticationRequest request)
+    public async Task<UserResponse?> AuthenticateUser(AuthenticationRequest request)
     {
         try
         {
@@ -19,7 +19,13 @@ public class UserRepository : IUserRepository<AuthenticationRequest>
 
             var token = GenerateJwtToken(user);
 
-            return token;
+            var authenticatedUser = new UserResponse();
+            authenticatedUser.UserName = user.UserName;
+            authenticatedUser.AccessToken = token;
+            authenticatedUser.UserBalance = user.UserBalance;
+            authenticatedUser.UserScore = user.UserScore;
+
+            return authenticatedUser;
         }
         catch (Exception ex)
         {

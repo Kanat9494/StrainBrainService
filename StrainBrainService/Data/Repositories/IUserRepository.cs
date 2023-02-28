@@ -2,5 +2,5 @@
 
 public interface IUserRepository<TRequest>
 {
-    Task<string?> AuthenticateUser(TRequest request);
+    Task<UserResponse?> AuthenticateUser(TRequest request);
 }

@@ -20,6 +20,7 @@ public class UserRepository : IUserRepository<AuthenticationRequest>
             var token = GenerateJwtToken(user);
 
             var authenticatedUser = new UserResponse();
+            authenticatedUser.UserId = user.UserId;
             authenticatedUser.UserName = user.UserName;
             authenticatedUser.AccessToken = token;
             authenticatedUser.UserBalance = user.UserBalance;

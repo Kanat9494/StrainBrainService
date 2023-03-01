@@ -10,7 +10,7 @@ public class QuestionController : ControllerBase
         _questionRepository = questionRepository;
     }
 
-    private readonly IDataRepository<Question> _questionRepository;
+    private readonly IDataRepository<Question> _questionRepository; 
 
     [HttpGet("GetQuestions/{questionsCountToSkip}")]
     public async Task<IEnumerable<Question>> GetQuestions(int questionsCountToSkip)
